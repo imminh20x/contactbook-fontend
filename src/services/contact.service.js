@@ -18,7 +18,7 @@ class ContactService {
     async update(id, data) {
         return (await this.http.put(`/${id}`, data)).data;
     }
-    async deleteOne(id) {
+    async delete(id) {
         return (await this.http.delete(`/${id}`)).data;
     }
 }
