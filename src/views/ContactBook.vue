@@ -24,7 +24,9 @@
           <i class="fas fa-plus"></i> Thêm mới
         </button>
 
-        <button class="btn btn-sm btn-danger" @click="removeAllContacts">
+        <button class="btn btn-sm btn-danger" 
+                @click="removeAllContacts"
+        >
           <i class="fas fa-trash"></i> Xóa tất cả
         </button>
       </div>
@@ -36,6 +38,16 @@
           <i class="fas fa-address-card"></i>
         </h4>
         <ContactCard :contact="activeContact" />
+        <router-link
+          :to="{
+            name: 'EditContact',
+            params: { id: activeContact.id },
+          }"
+        >
+          <span class="mt-2 badge badge-warning">
+            <i class="fas fa-edit"></i> Hiệu chỉnh</span
+          >
+        </router-link>
       </div>
     </div>
   </div>
@@ -84,6 +96,7 @@ export default {
       );
     },
     activeContact() {
+      console.log(this.activeIndex)
       if (this.activeIndex < 0) return null;
       return this.contacts[this.activeIndex];
     },
@@ -117,7 +130,7 @@ export default {
     },
 
     goToAddContact() {
-      this.$router.push({ name: "contact.add" });
+      this.$router.push({ name: "AddContact" });
     },
   },
   mounted() {
