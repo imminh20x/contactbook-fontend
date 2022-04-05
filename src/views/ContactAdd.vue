@@ -3,7 +3,7 @@
     <h4>Thêm Liên hệ</h4>
     <ContactForm
       :contact="contact"
-      @submit:contact="addContact"
+      @submit:contact="createContact"
     />
     <p>{{ message }}</p>
   </div>
